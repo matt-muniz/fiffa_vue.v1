@@ -13,9 +13,16 @@
         {{someText}}
         <input v-model="someText" />
       </div>
-      <div v-show="putHello">
-        {{putHello}}
+      <div>
+        <button id="btnClicked" v-on:click="callonClick($event, 'arg text')">
+          AddMe
+        </button>
+        <p>The button above has been clicked {{counter}} times.</p>
       </div>
+
+      <pre>
+          {{$data}}
+      </pre>
     </div>
   </body>
   <script src="scripts/framework/vue.js"></script>
