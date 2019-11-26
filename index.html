@@ -3,28 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
     <title>Player Viewer</title>
   </head>
   <body>
-    <h2>Alive</h2>
     <div id="app">
-      <div>
-        {{someText}}
-        <input v-model="someText" />
-      </div>
-      <div>
-        <button id="btnClicked" v-on:click="callonClick($event, 'arg text')">
-          AddMe
-        </button>
-        <p>The button above has been clicked {{counter}} times.</p>
-      </div>
-
-      <pre>
-          {{$data}}
-      </pre>
+      <v-app>
+        <v-content>
+          <v-container>
+            <v-layout row>
+              <div class="mr-2">
+                <v-btn v-on:click="showAlert = true" color="primary"
+                  >Primary</v-btn
+                >
+              </div>
+              <div class="mr-2">
+                <v-btn v-on:click="showAlert = false" color="error"
+                  >Error</v-btn
+                >
+              </div>
+              <div>
+                <v-btn disabled>Disabled</v-btn>
+              </div>
+            </v-layout>
+          </v-container>
+          <v-container>
+            <v-layout row>
+              <v-alert v-show="showAlert" type="success">
+                I'm a success alert.
+              </v-alert>
+            </v-layout>
+          </v-container>
+        </v-content>
+      </v-app>
     </div>
   </body>
   <script src="scripts/framework/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
   <script src="scripts/scripts.js"></script>
 </html>
