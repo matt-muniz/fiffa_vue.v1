@@ -9,8 +9,13 @@
   <body>
     <h2>Alive</h2>
     <div id="app">
-      {{someText}}
-      <input v-model="someText" />
+      <div>
+        {{someText}}
+        <input v-model="someText" />
+      </div>
+      <div v-show="putHello">
+        {{putHello}}
+      </div>
     </div>
   </body>
   <script src="scripts/framework/vue.js"></script>
