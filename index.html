@@ -26,34 +26,26 @@
       <v-app>
         <v-content>
           <v-container>
-            <v-layout row>
+            <v-layout>
               <div class="mr-2">
-                <v-btn v-on:click="showAlert = true" color="primary"
-                  >Primary</v-btn
-                >
-              </div>
-              <div class="mr-2">
-                <v-btn v-on:click="showAlert = false" color="error"
-                  >Error</v-btn
-                >
-              </div>
-              <div>
-                <v-btn disabled>Disabled</v-btn>
+                <v-btn v-on:click="loadApi" color="primary">Load Data</v-btn>
               </div>
             </v-layout>
           </v-container>
           <v-container>
-            <v-layout row>
-              <v-alert v-show="showAlert" type="success">
-                I'm a success alert.
-              </v-alert>
-            </v-layout>
+            <v-alert v-show="showAlert" type="success">
+              I'm a success alert.
+            </v-alert>
           </v-container>
         </v-content>
+        <pre>
+            {{$data}}
+        </pre>
       </v-app>
     </div>
   </body>
   <script src="scripts/framework/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
   <script src="scripts/scripts.js"></script>
 </html>
