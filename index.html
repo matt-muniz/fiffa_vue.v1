@@ -33,8 +33,11 @@
             </v-layout>
           </v-container>
           <v-container>
-            <v-alert v-show="showAlert" type="success">
-              I'm a success alert.
+            <v-alert v-show="dataLoaded == 1" type="success">
+              Data Loaded Succesfully
+            </v-alert>
+            <v-alert v-show="dataLoaded == 2" type="error">
+              Data Load Error
             </v-alert>
           </v-container>
         </v-content>
