@@ -3,7 +3,8 @@ new Vue({
   vuetify: new Vuetify(),
   data: {
     dataLoaded: 0,
-    apiData: undefined
+    apiData: undefined,
+    selectedCountry: undefined
   },
   methods: {
     loadApi: function() {
@@ -16,13 +17,19 @@ new Vue({
       this.dataLoaded = 1;
 
       const { data } = response;
-      this.apiData = response;
+      this.apiData = data;
       console.log(this.apiData, "success");
     },
     errorCallback: function(response) {
       this.dataLoaded = 2;
 
       console.log(response, "error");
+    },
+    selectionChanged: function() {
+      console.log(
+        "selectionChanged: this.selectedCountry: ",
+        this.selectedCountry
+      );
     }
   }
 });

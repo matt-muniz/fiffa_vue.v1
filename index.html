@@ -26,19 +26,23 @@
       <v-app>
         <v-content>
           <v-container>
-            <v-layout>
-              <div class="mr-2">
+            <v-layout column>
+              <div>
                 <v-btn v-on:click="loadApi" color="primary">Load Data</v-btn>
               </div>
+              <v-col class="d-flex" cols="12" sm="6">
+                <v-select
+                  v-if="apiData"
+                  v-model="selectedCountry"
+                  :items="apiData.nations"
+                  label="Select Nation"
+                  v-on:change="selectionChanged"
+                ></v-select>
+              </v-col>
             </v-layout>
-          </v-container>
-          <v-container>
-            <v-alert v-show="dataLoaded == 1" type="success">
-              Data Loaded Succesfully
-            </v-alert>
-            <v-alert v-show="dataLoaded == 2" type="error">
-              Data Load Error
-            </v-alert>
+            <v-content v-if="selectedCountry">
+              {{apiData.top_10s[selectedCountry]}}
+            </v-content>
           </v-container>
         </v-content>
         <pre>
