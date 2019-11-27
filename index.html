@@ -19,6 +19,7 @@
       href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles/styles.css" />
     <title>Player Viewer</title>
   </head>
   <body>
@@ -28,7 +29,7 @@
           <v-container>
             <v-layout column>
               <div>
-                <v-btn v-on:click="loadApi" color="primary">Load Data</v-btn>
+                <!-- <v-btn v-on:click="loadApi" color="primary">Load Data</v-btn> -->
               </div>
               <v-col class="d-flex" cols="12" sm="6">
                 <v-select
@@ -41,10 +42,10 @@
               </v-col>
             </v-layout>
             <v-content v-if="selectedCountry">
-              <table>
-                <tr>
-                  <th colspan="3">
-                    <div>
+              <table id="playerTable">
+                <tr class="nohover">
+                  <th colspan="2">
+                    <div style="text-align: left;">
                       <v-btn v-on:click="toggleDetails" color="primary">
                         Details {{showDetails ? 'off' : 'on'}}
                       </v-btn>
@@ -54,11 +55,16 @@
                   <th v-show="showDetails">Overall</th>
                 </tr>
                 <tr v-for="player in apiData.top_10s[selectedCountry]">
-                  <td><img :src="player.photo" alt="NOTFOUND" /></td>
+                  <!-- <td><img :src="player.photo" alt="NOTFOUND" /></td> -->
                   <td>{{player.name }}</td>
-                  <td><img :src="player.club_logo" alt="NOTFOUND" /></td>
-                  <td v-show="showDetails">{{player.age }}</td>
-                  <td v-show="showDetails">{{player.overall }}</td>
+                  <td>{{player.club }}</td>
+                  <!-- <td><img :src="player.club_logo" alt="NOTFOUND" /></td> -->
+                  <td style="text-align: center;" v-show="showDetails">
+                    {{player.age }}
+                  </td>
+                  <td style="text-align: center;" v-show="showDetails">
+                    {{player.overall }}
+                  </td>
                 </tr>
               </table>
             </v-content>

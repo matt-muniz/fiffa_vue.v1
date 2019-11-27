@@ -1,6 +1,10 @@
 new Vue({
   el: "#app",
-  vuetify: new Vuetify(),
+  vuetify: new Vuetify({
+    theme: {
+      dark: true
+    }
+  }),
   data: {
     dataLoaded: 0,
     apiData: undefined,
@@ -35,5 +39,8 @@ new Vue({
     toggleDetails: function() {
       this.showDetails = !this.showDetails;
     }
+  },
+  created: function() {
+    this.loadApi();
   }
 });
