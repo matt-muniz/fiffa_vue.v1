@@ -4,7 +4,8 @@ new Vue({
   data: {
     dataLoaded: 0,
     apiData: undefined,
-    selectedCountry: undefined
+    selectedCountry: undefined,
+    showDetails: false
   },
   methods: {
     loadApi: function() {
@@ -30,6 +31,9 @@ new Vue({
         "selectionChanged: this.selectedCountry: ",
         this.selectedCountry
       );
+    },
+    toggleDetails: function() {
+      this.showDetails = !this.showDetails;
     }
   }
 });
