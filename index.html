@@ -55,7 +55,7 @@
                   <th v-show="showDetails">Overall</th>
                 </tr>
                 <tr
-                  @click="playerDialog = true"
+                  @click="openPlayerDialog(player)"
                   v-for="player in apiData.top_10s[selectedCountry]"
                 >
                   <!-- <td><img :src="player.photo" alt="NOTFOUND" /></td> -->
@@ -63,7 +63,7 @@
                   <td>{{player.club }}</td>
                   <!-- <td><img :src="player.club_logo" alt="NOTFOUND" /></td> -->
                   <td style="text-align: center;" v-show="showDetails">
-                    {{player.age }}
+                    {{player.age}}
                   </td>
                   <td style="text-align: center;" v-show="showDetails">
                     {{player.overall }}
@@ -71,16 +71,17 @@
                 </tr>
               </table>
             </v-content>
-            <v-dialog v-model="playerDialog" persistent max-width="290">
+            <v-dialog
+              v-model="playerDialog"
+              persistent
+              max-width="400"
+              v-if="playerDetails"
+            >
               <v-card>
                 <v-card-title class="headline"
-                  >Use Google's location service?</v-card-title
+                  >Data For: {{playerDetails.name}}</v-card-title
                 >
-                <v-card-text
-                  >Let Google help apps determine location. This means sending
-                  anonymous location data to Google, even when no apps are
-                  running.</v-card-text
-                >
+                <v-card-text>{{playerDetails}}</v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn
