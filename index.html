@@ -78,9 +78,13 @@
               v-if="playerDetails"
             >
               <v-card>
-                <v-card-title class="headline"
-                  >Data For: {{playerDetails.name}}</v-card-title
-                >
+                <v-card-title class="headline">
+                  <v-toolbar dark color="primary">
+                    <v-toolbar-title class="white--text">
+                      Data For: {{playerDetails.name}}
+                    </v-toolbar-title>
+                  </v-toolbar>
+                </v-card-title>
                 <v-card-text>{{playerDetails}}</v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
